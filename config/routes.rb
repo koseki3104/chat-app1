@@ -1,3 +1,5 @@
-class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+Rails.application.routes.draw do
+  devise_for :users
+  root to: "messages#index"
+  resources :users, only: [:edit, :update]
 end
